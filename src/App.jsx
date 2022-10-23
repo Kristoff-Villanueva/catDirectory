@@ -14,13 +14,13 @@ function App() {
 		fetch("https://dog.ceo/api/breeds/image/random")
 			.then((res) => res.json())
 			.then((data) => {
-				setImageUrl(data.message);
+				setImageUrl(data);
 			});
 	}, []);
 
 	return (
 		<div className="App">
-			<Card image={imageUrl} />
+			<Card image={imageUrl.message} />
 			<Footer />
 		</div>
 	);
