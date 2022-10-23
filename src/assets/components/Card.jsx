@@ -4,7 +4,8 @@ import cardModule from "./card.module.css";
 export default function Card(props) {
 	return (
 		<div className="card">
-			<img src="" alt="" />
+			<h1>{props.image}</h1>
+			<img src={props.image} alt="" />
 		</div>
 	);
 }

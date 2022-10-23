@@ -4,17 +4,23 @@ import Card from "./assets/components/Card";
 import Footer from "./assets/components/Footer";
 
 function App() {
-	async function getResponse() {
-		const response = await fetch("https://api.thecatapi.com/v1/images/search");
-		const data = await response.json();
-		console.log(data);
-	}
+	// fetch("https://dog.ceo/api/breeds/image/random")
+	// 	.then((res) => res.json())
+	// 	.then((data) => storeIt(data));
 
-	getResponse();
+	const [imageUrl, setImageUrl] = React.useState("");
+
+	React.useEffect(function () {
+		fetch("https://dog.ceo/api/breeds/image/random")
+			.then((res) => res.json())
+			.then((data) => {
+				setImageUrl(data.message);
+			});
+	}, []);
 
 	return (
 		<div className="App">
-			<Card />
+			<Card image={imageUrl} />
 			<Footer />
 		</div>
 	);
